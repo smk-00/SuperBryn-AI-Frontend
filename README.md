@@ -33,14 +33,3 @@ This is the frontend application for the Voice Agent project, built with **React
     ```
 
     The app will typically run on `http://localhost:5173` (check the console output).
-
-## 🐳 Docker Deployment
-
-To run the frontend as a container:
-
-```bash
-docker build -t voice-frontend .
-docker run -p 80:80 voice-frontend
-```
-
-*Note: Within the main `docker-compose.yml`, this service is defined as `frontend`.*
