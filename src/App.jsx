@@ -14,7 +14,7 @@ function App() {
     setError(null);
     setCallSummary(null);
     try {
-      const resp = await fetch("http://localhost:8000/token");
+      const resp = await fetch("http://34.93.58.211:8000/token");
       if (!resp.ok) throw new Error("Backend unreachable");
       const data = await resp.json();
       setToken(data.token);
