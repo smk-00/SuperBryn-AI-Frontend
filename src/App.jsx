@@ -55,7 +55,7 @@ function App() {
             className="flex h-full"
           >
             {/* Left Sidebar - Clinic Branding */}
-            <div className="w-96 bg-white border-r border-slate-100 flex flex-col p-8 z-10 shadow-sm">
+            <div className="w-[300px] p-[20px] bg-white border-r border-slate-100 flex flex-col p-8 z-10 shadow-sm">
               <div className="flex items-center gap-3 mb-10">
 
                 <div>
@@ -128,7 +128,7 @@ function App() {
             className="w-full h-full"
           >
             {/* End Call Button Overlay */}
-            <div className="absolute top-4 right-4 z-50">
+            <div className="absolute top-[20px] left-[350px] z-50">
               <button
                 onClick={handleDisconnect}
                 className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur border border-red-100 text-red-600 rounded-full shadow-sm hover:bg-red-50 transition-colors text-sm font-medium"

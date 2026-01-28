@@ -66,24 +66,26 @@ export default function ToolFeed() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         layout
-                        className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm group hover:shadow-md transition-all"
+                        className="mt-[20px] bg-white border border-slate-100 rounded-xl p-4 shadow-sm group hover:shadow-md transition-all"
                     >
                         <div className="flex justify-between items-start mb-2">
                             <div className="flex items-center gap-2">
                                 <div className={`w-2 h-2 rounded-full ${tool.status === 'running' ? 'bg-teal-500 animate-pulse' : 'bg-emerald-500'}`} />
-                                <h3 className="text-xs font-bold text-slate-700 tracking-wide uppercase">
-                                    {tool.name.replace(/_/g, ' ')}
+                                <h3 className="m-[4px] text-xs font-bold text-slate-700 tracking-wide uppercase">
+                                    {tool.name.replace(/_/g, ' ')} |
                                 </h3>
+                                
+                                <p className={`text-xs leading-relaxed ${tool.status === 'running' ? 'text-slate-500 italic' : 'text-slate-600'}`}>
+                                    {tool.status === 'running' ? "Processing request..." : (tool.result || "Action completed.")}
+                                </p>
                             </div>
-                            <span className="text-[10px] text-slate-400 font-mono">
+                            <span className="text-[10px] p-[8px] text-slate-400 font-mono">
                                 {new Date(tool.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
                             </span>
                         </div>
 
                         <div className="pl-4 border-l-2 border-slate-100">
-                            <p className={`text-xs leading-relaxed ${tool.status === 'running' ? 'text-slate-500 italic' : 'text-slate-600'}`}>
-                                {tool.status === 'running' ? "Processing request..." : (tool.result || "Action completed.")}
-                            </p>
+                            
                         </div>
                     </motion.div>
                 ))}

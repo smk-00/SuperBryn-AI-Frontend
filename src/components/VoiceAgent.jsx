@@ -29,10 +29,10 @@ export default function VoiceAgent({ token, serverUrl, onDisconnect, onSummaryRe
                             <h2 className="text-xl font-bold text-slate-900 tracking-tight">Consultation Log</h2>
                             <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">Live Session</p>
                         </div>
-                        <div className="flex items-center gap-2">
+                        {/* <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                             <span className="text-xs font-semibold text-slate-500">REC</span>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Chat Feed */}
@@ -43,7 +43,7 @@ export default function VoiceAgent({ token, serverUrl, onDisconnect, onSummaryRe
                     {/* Tool/Action Log (Bottom Section of Left Panel) */}
                     <div className="h-1/3 border-t border-slate-200 flex flex-col bg-slate-50">
                         <div className="px-6 py-3 border-b border-slate-200/50 bg-slate-100/50">
-                            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">System Actions</h3>
+                            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">System Tool Actions</h3>
                         </div>
                         <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
                             <ToolFeed />
@@ -52,7 +52,7 @@ export default function VoiceAgent({ token, serverUrl, onDisconnect, onSummaryRe
                 </div>
 
                 {/* Right Panel: Avatar (60%) */}
-                <div className="w-[60%] relative flex flex-col items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 p-12">
+                <div className="w-[60%] relative flex flex-col items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 p-[100px]">
 
                     <div className="w-full h-full max-w-4xl max-h-[80vh] relative shadow-2xl rounded-3xl overflow-hidden border-4 border-white bg-slate-900 ring-1 ring-slate-200">
                         <AvatarDisplay initialized={avatarInitialized} setInitialized={setAvatarInitialized} />
@@ -131,14 +131,14 @@ function TranscriptFeed() {
                     key={msg.id}
                     className={`flex w-full ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                    <div className={`max-w-[85%] p-5 rounded-2xl text-[15px] leading-7 shadow-sm ${msg.sender === 'user'
-                        ? 'bg-teal-600 text-white rounded-br-sm'
+                    <div className={`max-w-[85%] p-5 mt-[18px] mb-[10px] rounded-[12px] text-[15px] leading-7 shadow-sm ${msg.sender === 'user'
+                        ? 'bg-white border border-slate-200 text-slate-700 rounded-bl-sm'
                         : 'bg-white border border-slate-200 text-slate-700 rounded-bl-sm'
                         }`}>
-                        <div className={`text-[10px] uppercase tracking-wider mb-2 font-bold ${msg.sender === 'user' ? 'text-teal-200' : 'text-slate-400'}`}>
+                        <div className={`text-[12px] p-[3px] uppercase tracking-wider mb-2 font-bold ${msg.sender === 'user' ? 'text-teal-200' : 'text-slate-400'}`}>
                             {msg.sender === 'user' ? 'You' : 'Assistant'}
                         </div>
-                        {msg.text}
+                        <div className={`p-[5px]`}>{msg.text}</div>
                     </div>
                 </motion.div>
             ))}
@@ -201,6 +201,7 @@ function AvatarDisplay({ initialized, setInitialized }) {
                             <div className="w-3 h-3 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
                         </div>
                         <p className="text-teal-200 text-xs tracking-[0.2em] font-medium uppercase">Connecting...</p>
+                        <p className="text-teal-200 text-xs tracking-[0.2em] font-medium uppercase">Please wait Agent avatar is initializing...</p>
                     </div>
                 )}
             </div>
