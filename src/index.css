@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --clinic-primary: #0f766e;
+  /* Teal-700 */
+  --clinic-secondary: #0ea5e9;
+  /* Sky-500 */
+  --clinic-bg: #f8fafc;
+  /* Slate-50 */
+  --clinic-surface: #ffffff;
+  --clinic-text: #0f172a;
+  /* Slate-900 */
+  --clinic-text-muted: #64748b;
+  /* Slate-500 */
+}
+
+body {
+  background-color: var(--clinic-bg);
+  color: var(--clinic-text);
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.2);
+}
+
+/* Glassmorphism / Cards */
+.clinic-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.clinic-panel {
+  background: #fff;
+  border-left: 1px solid #e2e8f0;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.02);
+}
